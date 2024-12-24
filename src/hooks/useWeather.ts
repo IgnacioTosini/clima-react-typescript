@@ -36,10 +36,11 @@ export default function useWeather() {
             const { data } = await axios.get(geoUrl)
             console.log(data)
             //Comprobar si existe
-            if (data[0]) {
+            if (!data[0]) {
                 setNotFound(true)
                 return
             }
+            console.log(data[0].lat)
             const lat = data[0].lat
             const lon = data[0].lon
 
